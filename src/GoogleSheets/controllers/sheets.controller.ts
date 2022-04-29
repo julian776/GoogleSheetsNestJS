@@ -15,14 +15,14 @@ export default class SheetsController {
         return this.sheetsService.getAllData(spreadsheetId)
     }
 
-    @Get('get-data')
+    @Post('get-data')
     getValues(@Body() config:ConfigDTO){
         return this.sheetsService.getValuesOnRange(config)
     }
 
     @Post('append')
     appendRow (@Body() config: ConfigDTO) {
-        return this.sheetsService.append(sanitizer(config))    
+        return this.sheetsService.append(sanitizer(config))
     }
 
     @Put('update')
